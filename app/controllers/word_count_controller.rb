@@ -8,14 +8,17 @@ class WordCountController < ApplicationController
     # The text the user input is in the string @text.
     # The special word the user input is in the string @special_word.
     # ================================================================================
+    text_for_analysis = @text.downcase
+    special_word_for_analysis = @special_word.downcase
+    special_word_count = text_for_analysis.scan(special_word_for_analysis).count
+    
+    @word_count = @text.split(" ").count
 
-    @word_count = "Replace this string with your answer"
+    @character_count_with_spaces = @text.length
 
-    @character_count_with_spaces = "Replace this string with your answer"
+    @character_count_without_spaces = @text.gsub(/\s+/, "").length
 
-    @character_count_without_spaces = "Replace this string with your answer"
-
-    @occurrences = "Replace this string with your answer"
+    @occurrences = special_word_count
 
     # ================================================================================
     # Your code goes above.
